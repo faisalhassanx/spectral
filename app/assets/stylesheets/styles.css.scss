@@ -1,3 +1,5 @@
+@import url('//fonts.googleapis.com/css?family=Josefin+Sans|Quicksand');
+
 * {
   margin: 0;
   padding: 0;
@@ -12,5 +14,75 @@ footer {
   bottom:0;
 }
 
+$font-family-base: 'Josefin Sans', sans-serif;
+
+$navbar-default-bg: #181842;
+$navbar-default-link-color: #ffffff;
+$navbar-default-toggle-icon-bar-bg: #ffffff;
+$navbar-default-toggle-hover-bg: #d3e0f7;
+$navbar-default-link-hover-color: #d3e0f7;
+$dropdown-link-color: #181842;
+$dropdown-link-hover-color: #ffffff;
+$dropdown-link-hover-bg: #181842;
+$component-active-bg: #181842;
+$jumbotron-bg: #d3e0f7;
+$well-bg: #d3e0f7;
+$well-border: #ffffff;
+$btn-default-bg: #ffffff;
+$btn-default-color: #181842;
+$btn-primary-bg: #181842;
+$btn-primary-color: #f4f5f9;
+$btn-info-bg: #005f6b;
+$btn-info-color: #ffffff;
+$btn-success-bg: #004e66;
+$btn-success-color: #F8FAFF;
+$btn-warning-bg: #a6172d;
+$btn-warning-color: #ffffff;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  padding-top: 70px;
+  background-color: #ffffff;
+  color: #181842;
+  font-size: 1.4em;
+}
+
+
+// Navbar
+
+.navbar-default {
+  padding: 5px 20px;
+}
+.navbar-default .navbar-nav > li > a {
+  font-size: 1.5em;
+}
+
+.navbar-default .navbar-nav > a, 
+.navbar-default .navbar-nav > a:hover, 
+.navbar-default .navbar-nav > a:focus {
+  background-color: #181842;
+  color: #d3e0f7;
+}
+
+#logo {
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.navbar-brand {
+  padding: 5px 15px;
+  letter-spacing: 3px;
+}
+
+#logo:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.navbar-brand > img {
+  display: inline;
+  height: 40px;
+  width: 40px;
+}
