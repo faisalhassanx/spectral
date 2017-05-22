@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,body,#page, header { 
+  height:100%;
+}
+/* FOOTER HEIGHT */
+footer { 
+  position:absolute;
+  bottom:0;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
