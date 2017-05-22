@@ -69,11 +69,13 @@ body {
 #logo {
   font-size: 1.6em;
   font-weight: 600;
+  padding-top: 7px;
 }
 
 .navbar-brand {
-  padding: 5px 15px;
-  letter-spacing: 3px;
+  padding: 5px 25px;
+  padding-left: 10px;
+  letter-spacing: 2px;
 }
 
 #logo:hover {
