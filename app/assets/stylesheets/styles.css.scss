@@ -123,3 +123,39 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+//  Footer credits pill
+
+footer a:hover {
+  color: #a6172d;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+.nav-pills {
+  background-color: #181842;
+}
+
+.nav-pills > li > a:hover {
+  border-radius: 0;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #ffffff;
+  border-radius: 0;
+}
+
+.nav > li > a#by-tab {
+  padding: 5px 10px;
+}
+
+a#by-tab {
+  color: #ffffff;
+}
+
+a#by-tab:hover {
+  color: #181842;
+}
