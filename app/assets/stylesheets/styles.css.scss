@@ -180,10 +180,21 @@ a#by-tab:hover {
 }
 
 .chef-info {
-  padding-bottom: 5px;
-  
+  padding: 10px;
+  padding-right: 25px;
+  margin-top: 10px;
+}
+
+.gravatar {
+  border-radius: 10px;
+}
+
+.well {
+  border-radius: 10px;
 }
 
 .recipe-info {
-  min-height: 157px;
+  margin-top: 10px;
+  padding: 10px;
+  padding-left: 30px;
 }
