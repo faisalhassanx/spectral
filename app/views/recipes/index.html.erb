@@ -5,15 +5,16 @@
       
       <% @recipes.each do |recipe| %>
         <div class="row">
-          <div class="col-md-2">
-            <section class="chef-info center">
-              
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <section class="chef-info well text-center">
+              <%= gravatar_for recipe.chef, size: 100 %>
+              <h5><strong>Chef Name: <%= recipe.chef.name %></strong></h5>
             </section>
           </div>
           
-          <div class="col-lg-8 well">
-            <h3><%= link_to recipe.name, '#' %></h3>
-            <p><%= recipe.summary %></p>
+          <div class="recipe-info col-lg-9 col-md-9 col-sm-9 well">
+            <h2><%= link_to recipe.name, '#' %></h2>
+            <h4><%= recipe.summary %></h4>
             <p>
               <span class="quiet"><small>Created at <%= time_ago_in_words(recipe.created_at) %> 
                                                         ago</small></span>
