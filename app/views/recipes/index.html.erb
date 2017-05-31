@@ -13,7 +13,7 @@
           </div>
           
           <div class="recipe-info col-lg-9 col-md-9 col-sm-9 well">
-            <h2><%= link_to recipe.name.capitalize, '#' %></h2>
+            <h2><%= link_to recipe.name.titleize, recipe %></h2>
             <h4><%= recipe.summary %></h4>
             <p>
               <span class="quiet"><small>Created at <%= time_ago_in_words(recipe.created_at) %> 
