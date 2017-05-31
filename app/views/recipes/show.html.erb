@@ -1,19 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <h1 class="text-center"><%= @recipe.name.titleize %></h1>
-      <div class="row">
-        <div class="col-md-3 text-center">
-          <%= gravatar_for @recipe.chef, size: 150 %>
-          <p><h4>Brought to you by: <%= @recipe.chef.name %></h4></p>
-        </div>
-        <div class="col-md-8 well">
-          <h3><%= @recipe.summary %></h3>
-          <h4><strong>Steps: &nbsp;</strong><%= @recipe.description %></h4>
-        </div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="text-center"><%= @recipe.name.titleize %></h1>
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <%= gravatar_for @recipe.chef, size: 150 %>
+        <p><h4>Brought to you by: <%= @recipe.chef.name %></h4></p>
+      </div>
+      <div class="col-md-8 well">
+        <h3><%= @recipe.summary %></h3>
+        <h4><strong>Steps: &nbsp;</strong><%= @recipe.description %></h4>
       </div>
     </div>
   </div>
 </div>
+
 
 <h5><%= link_to "Return to Recipes Index", recipes_path, class: "btn btn-primary" %></h5>
