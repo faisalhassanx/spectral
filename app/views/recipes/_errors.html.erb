@@ -1,7 +1,6 @@
 <% if @recipe.errors.any? %>
   <div class="row">
     <div class="alert alert-danger col-md-12">
-      <a class="close" data-dismiss="alert">&#215;</a>
       <ul class="errors text-center">
         <% @recipe.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
