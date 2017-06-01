@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
       flash[:success] = "Recipe has been created successfully"
       redirect_to recipes_path
     else
-      flash[:danger] = "Please try again."
+      flash[:danger] = "Please correct the following errors."
       render 'new'
     end
   end
