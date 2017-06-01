@@ -9,10 +9,11 @@
 
       </div>
       <div class="col-md-8 well">
-        <%= link_to "Delete", edit_recipe_path(@recipe), class: "btn btn-danger pull-right" %>
+        <%= link_to "Delete", recipe_path(@recipe), method: :delete, 
+                              data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary pull-right edit-btn" %>
         <h3><%= @recipe.summary %></h3>
-        <h4><strong>Steps: &nbsp;</strong><%= @recipe.description %></h4>
+        <h4><strong>Steps: &nbsp;</strong><%= simple_format(@recipe.description) %></h4>
       </div>
     </div>
   </div>
