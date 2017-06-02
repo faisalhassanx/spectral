@@ -6,19 +6,26 @@
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3">
           <section class="chef-info text-center">
-            <%= gravatar_for recipe.chef, size: 120 %>
+            <%= gravatar_for recipe.chef, size: 160 %>
             <h4><strong>Chef: <%= recipe.chef.name %></strong></h4>
           </section>
         </div>
         
         <div class="recipe-info col-lg-9 col-md-9 col-sm-9 well">
-          <h2><%= link_to recipe.name.titleize, recipe %></h2>
-          <h4><%= recipe.summary %></h4>
+          <div class="row">
+            <div class="col-md-7">
+              <h2><%= link_to recipe.name.titleize, recipe %></h2>
+              <h4><%= recipe.summary %></h4>
+              
+            </div>
+            <div class="col-md-5">
+              <div class="pull-right"><%= image_tag(recipe.picture.url, size: "250x150", class: "index-img gravatar") if recipe.picture? %></div>
+            </div>
+          </div>
           <p>
-            <span class="quiet"><small>Created at <%= time_ago_in_words(recipe.created_at) %> 
-                                                      ago</small></span>
+            <span class="quiet"><small>Created 
+                  <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
           </p>
-          <%= image_tag(recipe.picture.url, size: "250x150", class: "gravatar") if recipe.picture? %>
         </div>
         
         <hr />
