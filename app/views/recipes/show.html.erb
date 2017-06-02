@@ -11,9 +11,8 @@
       <div class="col-md-8 well">
         
         <h3 class="text-center"><%= @recipe.summary.titleize %></h3>
-        <div class="text-center">
-          <%= image_tag(@recipe.picture.url, size: "650x350", class: "show-img gravatar") if @recipe.picture? %>
-        </div>
+          <%= image_tag(@recipe.picture.url, size: "650x350", 
+              class: "show-img img-responsive center-block gravatar") if @recipe.picture? %>
         <h4><strong>Steps: &nbsp;</strong><%= simple_format(@recipe.description) %></h4>
         <%= link_to "Delete", recipe_path(@recipe), method: :delete, 
                               data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
