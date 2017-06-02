@@ -9,14 +9,15 @@
 
       </div>
       <div class="col-md-8 well">
+        
+        <h3 class="text-center"><%= @recipe.summary.titleize %></h3>
+        <div class="text-center">
+          <%= image_tag(@recipe.picture.url, size: "650x350", class: "show-img gravatar") if @recipe.picture? %>
+        </div>
+        <h4><strong>Steps: &nbsp;</strong><%= simple_format(@recipe.description) %></h4>
         <%= link_to "Delete", recipe_path(@recipe), method: :delete, 
                               data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary pull-right edit-btn" %>
-        <h3><%= @recipe.summary %></h3>
-        <div class="show-recipe">
-          <%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
-        </div>
-        <h4><strong>Steps: &nbsp;</strong><%= simple_format(@recipe.description) %></h4>
       </div>
     </div>
   </div>
