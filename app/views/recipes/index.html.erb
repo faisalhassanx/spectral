@@ -18,6 +18,7 @@
             <span class="quiet"><small>Created at <%= time_ago_in_words(recipe.created_at) %> 
                                                       ago</small></span>
           </p>
+          <%= image_tag(recipe.picture.url, size: "250x150", class: "gravatar") if recipe.picture? %>
         </div>
         
         <hr />
