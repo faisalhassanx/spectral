@@ -50,8 +50,7 @@ class RecipesController < ApplicationController
   def like
     @recipe = Recipe.find(params[:id])
     Like.create(like: params[:like], chef: Chef.first, recipe: @recipe)
-    flash[:success] = "Liked!"
-    redirect_to recipe_path(@recipe)
+    redirect_back(fallback_location: root_path)
   end
   
   private
