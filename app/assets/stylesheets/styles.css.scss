@@ -223,3 +223,13 @@ img.show-img.gravatar {
 .errors {
   list-style: none;
 }
+
+// Pagination
+.pagination > li > a, .pagination > li > span {
+  color: #181842;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: #181842;
+  border-color: #181842;
+}
