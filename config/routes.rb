@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   
   # delete '/recipes/:id', to: 'recipes#destroy'
   
+  resources :recipes do
+    member do
+      post 'like'
+    end
+  end
+  
   resources :recipes
   
   root 'pages#home'
