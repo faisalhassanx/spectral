@@ -34,8 +34,11 @@
             </div>
           </p>
           <p>
-            <span class="quiet"><small>Created 
-                  <%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+            <span class="quiet">
+              <small>Created: <%= time_ago_in_words(recipe.created_at) %> ago</small> ||
+              <small>Updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+                  
+            </span>
           </p>
         </div>
       </div>
