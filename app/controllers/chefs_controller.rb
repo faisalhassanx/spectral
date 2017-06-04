@@ -16,7 +16,7 @@ class ChefsController < ApplicationController
     @chef = Chef.new(chef_params)
     if @chef.save
       flash[:success] = "You have registered successfully."
-      redirect_to chef_path(@chef)
+      redirect_to recipes_path
     else
       flash[:danger] = "Please correct the following errors and try again"
       render 'new'

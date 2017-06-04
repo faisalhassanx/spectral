@@ -2,7 +2,7 @@
   <div class="row">
     <div class="alert alert-danger col-md-12">
       <ul class="errors text-center">
-        <% @recipe.errors.full_messages.each do |msg| %>
+        <% object.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
