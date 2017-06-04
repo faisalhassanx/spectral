@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   
   # delete '/recipes/:id', to: 'recipes#destroy'
   
+  resources :chefs, except: [:new]
+  get '/register', to: 'chef#new'
+  
   resources :recipes do
     member do
       post 'like'
