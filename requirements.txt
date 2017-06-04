@@ -20,3 +20,15 @@ email :string
 - email must be present
 - email must be unique
 - email must be valid
+
+User authentication:
+- Add passwords to the chefs table for authentication
+- Use unique email as credentials
+- Ability to register new chefs
+- Ability to display chefs profile
+- Ability to list chefs profiles
+- Ability to list chefs using the app
+- Ability for chefs to log in and out of the app
+- Restrict actions like create recipe, edit recipe and like feature to logged 
+  in chefs only
+- Restricting editing recipes to the owner of the recipes
