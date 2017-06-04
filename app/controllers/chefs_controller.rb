@@ -25,11 +25,17 @@ class ChefsController < ApplicationController
   
   def edit
     @chef = Chef.find(params[:id])
-    
   end
   
   def update
-  
+    @chef = Chef.find(params[:id])
+    if @chef.update(chef_params)
+      flash[:success] = "Account updated successfully"
+      redirect_to recipes_path
+    else
+      flash[:danger] = "Please correct the following errors and try again"
+      render 'edit'
+    end
   end
   
   def destroy
