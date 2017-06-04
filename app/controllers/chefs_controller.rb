@@ -40,7 +40,9 @@ class ChefsController < ApplicationController
   end
   
   def destroy
-  
+    @chef = Chef.find(params[:id])
+    @chef.destroy
+    flash[:danger] = "Account has been deleted"
   end
   
   private
