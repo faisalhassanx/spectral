@@ -19,7 +19,7 @@ gem 'bootstrap-will_paginate'
 
 
 # gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # gem 'capistrano-rails', group: :development
 
