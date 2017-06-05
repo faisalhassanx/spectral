@@ -1,11 +1,11 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :like]
   
   def index
     @recipes = Recipe.paginate(page: params[:page], per_page: 5)
   end
   
   def show
-    @recipe = Recipe.find(params[:id])
   end
   
   def new
@@ -25,11 +25,9 @@ class RecipesController < ApplicationController
   end
   
   def edit
-    @recipe = Recipe.find(params[:id])
   end
   
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       flash[:success] = "Recipe has been successfully updated"
       redirect_to recipe_path(@recipe)
@@ -40,7 +38,6 @@ class RecipesController < ApplicationController
   end
   
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     flash[:danger] = "Recipe has been successfully deleted."
     
@@ -48,12 +45,15 @@ class RecipesController < ApplicationController
   end
   
   def like
-    @recipe = Recipe.find(params[:id])
     Like.create(like: params[:like], chef: Chef.first, recipe: @recipe)
     redirect_back(fallback_location: root_path)
   end
   
   private
+  
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
   
   def recipe_params
     params.require(:recipe).permit(:name, :summary, :description, :picture)
