@@ -6,8 +6,11 @@
       <h2>
         Vaporware snackwave chartreuse etsy locavore 
       </h2>
-
-  <%= link_to 'Sign Up', register_path, class: 'btn btn-primary btn-lg' %>
+  <% if logged_in? %>
+    <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary btn-lg' %>
+  <% else %>
+    <%= link_to 'Sign Up', register_path, class: 'btn btn-primary btn-lg' %>
+  <% end %>
     </div>
   </div>
 </div>
