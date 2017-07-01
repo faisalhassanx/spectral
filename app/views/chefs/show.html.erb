@@ -5,9 +5,11 @@
       <div class="col-md-4 col-md-offset-4 text-center">
         <%= gravatar_for @chef, size: 250 %>
         <h5>
-          <%= link_to "Edit", edit_chef_path(@chef), class: "btn btn-primary edit-btn" %>
-          <%= link_to "Delete", chef_path(@chef), method: :delete, 
-                              data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <% if logged_in? %>
+            <%= link_to "Edit", edit_chef_path(@chef), class: "btn btn-primary edit-btn" %>
+            <%= link_to "Delete", chef_path(@chef), method: :delete, 
+                                data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <% end %>
         </h5>
       </div>
     </div>
@@ -22,6 +24,7 @@
             <h4><%= recipe.summary %></h4>
             <br />
             <p>
+              <% if logged_in? %>
                 <%= link_to like_recipe_path(recipe, like: true), method: :post, 
                                              class: "btn btn-default btn-sm" do %>
                   <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; 
@@ -32,6 +35,7 @@
                   <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp;
                   <strong><%= recipe.thumbs_down_total %></strong>
                 <% end %>
+              <% end %>
             </p>
           </div>
           <div class="col-md-5">
