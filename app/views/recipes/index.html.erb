@@ -27,15 +27,17 @@
           </div>
           <p>
             <div>
-              <%= link_to like_recipe_path(recipe, like: true), method: :post, 
-                                           class: "btn btn-default btn-sm" do %>
-                <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; 
-                <strong><%= recipe.thumbs_up_total %></strong>
-              <% end %>
-              <%= link_to like_recipe_path(recipe, like: false), method: :post, 
-                                           class: "btn btn-default btn-sm" do %>
-                <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp;
-                <strong><%= recipe.thumbs_down_total %></strong>
+              <% if logged_in? %>
+                <%= link_to like_recipe_path(recipe, like: true), method: :post, 
+                                             class: "btn btn-default btn-sm" do %>
+                  <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; 
+                  <strong><%= recipe.thumbs_up_total %></strong>
+                <% end %>
+                <%= link_to like_recipe_path(recipe, like: false), method: :post, 
+                                             class: "btn btn-default btn-sm" do %>
+                  <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp;
+                  <strong><%= recipe.thumbs_down_total %></strong>
+                <% end %>
               <% end %>
             </div>
           </p>
