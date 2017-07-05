@@ -22,15 +22,13 @@
               class: "show-img img-responsive center-block gravatar") if @recipe.picture? %>
         <h4><strong>Steps: &nbsp;</strong><%= simple_format(@recipe.description) %></h4>
         <div class="text-center">
-          <% if logged_in? %>
-            <%= link_to like_recipe_path(@recipe, like: true), method: :post, class: "btn btn-default btn-md edit-btn" do %>
-              <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; 
-              <strong><%= @recipe.thumbs_up_total %></strong>
-            <% end %>
-            <%= link_to like_recipe_path(@recipe, like: false), method: :post, class: "btn btn-default btn-md" do %>
-              <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp;
-              <strong><%= @recipe.thumbs_down_total %></strong>
-            <% end %>
+          <%= link_to like_recipe_path(@recipe, like: true), method: :post, class: "btn btn-default btn-md edit-btn" do %>
+            <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; 
+            <strong><%= @recipe.thumbs_up_total %></strong>
+          <% end %>
+          <%= link_to like_recipe_path(@recipe, like: false), method: :post, class: "btn btn-default btn-md" do %>
+            <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp;
+            <strong><%= @recipe.thumbs_down_total %></strong>
           <% end %>
         </div>
       </div>

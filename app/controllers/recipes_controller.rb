@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :like]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_logged_in_user, only: [:like]
   
   def index
     @recipes = Recipe.paginate(page: params[:page], per_page: 5)
@@ -57,6 +59,20 @@ class RecipesController < ApplicationController
   
   def recipe_params
     params.require(:recipe).permit(:name, :summary, :description, :picture)
+  end
+  
+  def require_same_user
+    if current_user != @recipe.chef
+      flash[:danger] = "You can only edit your own recipes"
+      redirect_to recipes_path
+    end
+  end
+  
+  def require_logged_in_user
+    if current_user != logged_in?
+      flash[:danger] = "Please sign up or log in"
+      redirect_to root_path
+    end
   end
   
 end
