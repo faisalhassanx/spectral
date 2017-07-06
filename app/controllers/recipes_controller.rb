@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :like]
+  before_action :require_logged_in_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :require_logged_in_user, only: [:like]
+  
   
   def index
     @recipes = Recipe.paginate(page: params[:page], per_page: 5)
@@ -69,7 +70,7 @@ class RecipesController < ApplicationController
   end
   
   def require_logged_in_user
-    if current_user != logged_in?
+    if !logged_in?
       flash[:danger] = "Please sign up or log in"
       redirect_to root_path
     end
