@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
   
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.chef = Chef.find(1) 
+    @recipe.chef = current_user
     if @recipe.save
       flash[:success] = "Recipe has been created successfully"
       redirect_to recipes_path
@@ -48,7 +48,7 @@ class RecipesController < ApplicationController
   end
   
   def like
-    Like.create(like: params[:like], chef: Chef.first, recipe: @recipe)
+    Like.create(like: params[:like], chef: current_user, recipe: @recipe)
     redirect_back(fallback_location: root_path)
   end
   
@@ -72,7 +72,7 @@ class RecipesController < ApplicationController
   def require_logged_in_user
     if !logged_in?
       flash[:danger] = "Please sign up or log in"
-      redirect_to root_path
+      redirect_to login_path
     end
   end
   

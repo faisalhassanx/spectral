@@ -1,5 +1,6 @@
 class ChefsController < ApplicationController
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
+  before_action :require_logged_in_user, except: [:show, :index]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
@@ -32,7 +33,7 @@ class ChefsController < ApplicationController
   def update
     if @chef.update(chef_params)
       flash[:success] = "Account updated successfully"
-      redirect_to recipes_path
+      redirect_to chef_path(@chef)
     else
       flash[:danger] = "Please correct the following errors and try again"
       render 'edit'
@@ -57,7 +58,14 @@ class ChefsController < ApplicationController
   def require_same_user
     if current_user != @chef
       flash[:danger] = "You can only edit your own profile"
-      redirect_to root_path
+      redirect_to chefs_path
+    end
+  end
+  
+  def require_logged_in_user
+    if !logged_in?
+      flash[:danger] = "Please sign up or log in"
+      redirect_to login_path
     end
   end
   
