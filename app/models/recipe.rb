@@ -1,6 +1,8 @@
 class Recipe < ActiveRecord::Base
   belongs_to :chef
   has_many :likes, dependent: :destroy
+  has_many :recipe_styles
+  has_many :styles, through: :recipe_styles, dependent: :destroy
   validates :chef_id,     presence: true
   validates :name,        presence: true,
                           length: { in: 5..100 }
