@@ -1,1 +1,10 @@
-<h1>Add Ingredient</h1>
+<%= render 'shared/errors', object: @ingredient %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h1 class="text-center">Create an Ingredient</h1>
+    <hr />
+    <div class="well">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
