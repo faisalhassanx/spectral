@@ -16,6 +16,8 @@
             <div class="col-md-7">
               <h2><%= link_to recipe.name.titleize, recipe %></h2>
               <h4><%= recipe.summary %></h4>
+              <p><%= render recipe.styles %></p>
+              <p><%= render recipe.ingredients %></p>
             </div>
             <div class="col-md-5  hidden-xs">
               <div class="pull-right">
