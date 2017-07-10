@@ -38,6 +38,12 @@ $btn-success-bg: #004e66;
 $btn-success-color: #F8FAFF;
 $btn-warning-bg: #a6172d;
 $btn-warning-color: #ffffff;
+$label-primary-bg: #181842;
+$label-success-bg: #004e66;
+$label-color: #ffffff;
+$label-link-hover-color: #ffffff;
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -246,4 +252,12 @@ img.show-img.gravatar {
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
   background-color: #181842;
   border-color: #181842;
+}
+
+
+// Labels
+
+#style-label, #ingredient-label {
+  color: #ffffff;
+  letter-spacing: 1px;
 }
