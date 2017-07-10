@@ -20,6 +20,10 @@
         <h3 class="text-center"><%= @recipe.summary.titleize %></h3>
           <%= image_tag(@recipe.picture.url, size: "650x350", 
               class: "show-img img-responsive center-block gravatar") if @recipe.picture? %>
+        <br />
+        <h4><strong>Style(s)</strong>: <%= render @recipe.styles %></h4>
+        <h4><strong>Ingredient(s)</strong>: <%= render @recipe.ingredients %></h4>
+        <br />
         <h4><strong>Steps: &nbsp;</strong><%= simple_format(@recipe.description) %></h4>
         <div class="text-center">
           <%= link_to like_recipe_path(@recipe, like: true), method: :post, class: "btn btn-default btn-md edit-btn" do %>

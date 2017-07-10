@@ -15,9 +15,9 @@
           <div class="row">
             <div class="col-md-7">
               <h2><%= link_to recipe.name.titleize, recipe %></h2>
-              <h4><%= recipe.summary %></h4>
-              <p><strong>Style(s)</strong>: <%= render recipe.styles %></p>
-              <p><strong>Ingredient(s)</strong>: <%= render recipe.ingredients %></p>
+              <h4><strong><%= recipe.summary %></strong></h4>
+              <h4><strong>Style(s)</strong>: <%= render recipe.styles %></h4>
+              <h4><strong>Ingredient(s)</strong>: <%= render recipe.ingredients %></h4>
             </div>
             <div class="col-md-5  hidden-xs">
               <div class="pull-right">
