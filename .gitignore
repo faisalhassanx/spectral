@@ -24,3 +24,6 @@
 
 # Ignore all cloud9 files
 .c9/
+
+# Ignore requirements
+requirements.txt

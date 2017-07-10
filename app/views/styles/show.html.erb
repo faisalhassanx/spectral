@@ -1,1 +1,60 @@
-<h1>Styles</h1>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+    <h1 class="text-center"><%= @style.name.capitalize %> Recipes</h1>
+    <hr />
+    <% @style.recipes.each do |recipe| %>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <section class="chef-info text-center">
+            <%= gravatar_for recipe.chef, size: 160 %>
+            <h4><strong>Chef: <%= recipe.chef.name %></strong></h4>
+          </section>
+        </div>
+        
+        <div class="recipe-info col-lg-9 col-md-9 col-sm-9 well">
+          <div class="row">
+            <div class="col-md-7">
+              <h2><%= link_to recipe.name.titleize, recipe %></h2>
+              <h4><%= recipe.summary %></h4>
+              <p><strong>Style(s)</strong>: <%= render recipe.styles %></p>
+              <p><strong>Ingredient(s)</strong>: <%= render recipe.ingredients %></p>
+            </div>
+            <div class="col-md-5  hidden-xs">
+              <div class="pull-right">
+                <%= image_tag(recipe.picture.url, 
+                              size: "350x200",   
+                              class: "index-img gravatar") if recipe.picture? %>
+              </div>
+            </div>
+          </div>
+          <p>
+            <div>
+              <%= link_to like_recipe_path(recipe, like: true), method: :post, 
+                                           class: "btn btn-default btn-sm" do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; 
+                <strong><%= recipe.thumbs_up_total %></strong>
+              <% end %>
+              <%= link_to like_recipe_path(recipe, like: false), method: :post, 
+                                           class: "btn btn-default btn-sm" do %>
+                <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp;
+                <strong><%= recipe.thumbs_down_total %></strong>
+              <% end %>
+            </div>
+          </p>
+          <p>
+            <span class="quiet">
+              <small>Created: <%= time_ago_in_words(recipe.created_at) %> ago</small> ||
+              <small>Updated: <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+            </span>
+          </p>
+        </div>
+      </div>
+      <hr />
+    <% end %>
+    
+  </div>
+</div>
+
+<div class="text-center">
+  <strong><%= will_paginate @recipes %></strong>
+</div>
