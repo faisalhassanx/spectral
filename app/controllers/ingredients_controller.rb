@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_action :require_logged_in_user, only: [:new, :create]
   
   def show
     @ingredient = Ingredient.find(params[:id])
@@ -25,4 +26,12 @@ class IngredientsController < ApplicationController
   def ingredient_params
     params.require(:ingredient).permit(:name)
   end
+  
+  def require_logged_in_user
+    if !logged_in?
+      flash[:danger] = "Please sign up or log in"
+      redirect_to login_path
+    end
+  end
+  
 end

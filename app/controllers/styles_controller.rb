@@ -1,4 +1,5 @@
 class StylesController < ApplicationController
+  before_action :require_logged_in_user, only: [:new, :create]
   
   def show
     @style = Style.find(params[:id])
@@ -26,6 +27,13 @@ class StylesController < ApplicationController
   
   def style_params
     params.require(:style).permit(:name)
+  end
+  
+  def require_logged_in_user
+    if !logged_in?
+      flash[:danger] = "Please sign up or log in"
+      redirect_to login_path
+    end
   end
   
 end
