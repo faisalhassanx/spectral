@@ -19,8 +19,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Chefs', chefs_path %></li>
-        <li><%= link_to 'Recipes', recipes_path %></li>
+        <% unless controller_name == "chefs" && action_name == "index" %>
+          <li><%= link_to 'Chefs', chefs_path %></li>
+        <% end %>
+        
+        <% unless controller_name == "recipes" && action_name == "index" %>
+          <li><%= link_to 'Recipes', recipes_path %></li>
+        <% end %>
+        
         <li class="dropdown">
           <%= link_to '#', class: "dropdown-toggle", 
                       "data-toggle" => "dropdown" do %>
@@ -55,24 +61,30 @@
           <li><%= link_to 'New Recipe', new_recipe_path %></li>
         <% end %>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
-          <li class="dropdown">
-            <%= link_to '#', class: "dropdown-toggle", 
-                        "data-toggle" => "dropdown" do %>
-              <%= current_user.name %> <b class="caret"></b>
-            <% end %>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Profile', chef_path(current_user) %></li>
-              <li><%= link_to 'Edit Profile', edit_chef_path(current_user) %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to 'Log out', logout_path %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to 'Log in', login_path %></li>
-        <% end %>
-      </ul>
+      <% if controller_name == "sessions" && action_name = "new" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Sign Up', register_path %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li class="dropdown">
+              <%= link_to '#', class: "dropdown-toggle", 
+                          "data-toggle" => "dropdown" do %>
+                <%= current_user.name %> <b class="caret"></b>
+              <% end %>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Profile', chef_path(current_user) %></li>
+                <li><%= link_to 'Edit Profile', edit_chef_path(current_user) %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Log out', logout_path %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to 'Log in', login_path %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
