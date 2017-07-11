@@ -31,7 +31,7 @@ class StylesController < ApplicationController
   
   def require_logged_in_user
     if !logged_in?
-      flash[:danger] = "Please sign up or log in"
+      flash[:danger] = "Please log in or sign up"
       redirect_to login_path
     end
   end
