@@ -43,6 +43,12 @@ class ChefsController < ApplicationController
   def destroy
     @chef.destroy
     flash[:danger] = "Account has been deleted"
+    if current_user.admin?
+      redirect_to chefs_path
+    else
+      session[:chef_id] = nil
+      redirect_to root_path
+    end
   end
   
   private
@@ -56,7 +62,7 @@ class ChefsController < ApplicationController
   end
   
   def require_same_user
-    if current_user != @chef
+    if current_user != @chef and !current_user.admin?
       flash[:danger] = "You can only edit your own profile"
       redirect_to chefs_path
     end
