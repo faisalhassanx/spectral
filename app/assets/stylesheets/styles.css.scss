@@ -60,9 +60,18 @@ body {
 
 .navbar-default {
   padding: 5px 20px;
+  max-height: 65px;
 }
 .navbar-default .navbar-nav > li > a {
   font-size: 1.35em;
+  background-color: #181842;
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover 
+.navbar-default .navbar-nav > li > a:focus {
+  background-color: #181842;
+  color: #ffffff;
 }
 
 .navbar-default .navbar-nav > a, 
@@ -95,11 +104,30 @@ body {
   width: 40px;
 }
 
-.navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #181842;
   color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
+  background-color: #181842;
+  color: #d3e0f7;
+}
+
+@media (max-width: 767px) {
+
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    background-color: #ffffff;
+    color: #181842;
+  }
+  
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus{
+    background-color: #181842;
+    color: #ffffff;
+  }
 }
 
 // Buttons
