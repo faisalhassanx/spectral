@@ -37,7 +37,7 @@
               <li><%= link_to style.name, style_path(style) %></li>
             <% end %>
             <% if logged_in? %>
-              <li role="separator" class="divider"></li>
+              <li class="divider"></li>
               <li><%= link_to 'Add Style', new_style_path %></li>
             <% end %>
           </ul>
@@ -52,7 +52,7 @@
               <li><%= link_to ingredient.name.capitalize, ingredient_path(ingredient) %></li>
             <% end %>
             <% if logged_in? %>
-              <li role="separator" class="divider"></li>
+              <li class="divider"></li>
               <li><%= link_to 'Add Ingredient', new_ingredient_path %></li>
             <% end %>
           </ul>
@@ -76,7 +76,7 @@
               <ul class="dropdown-menu">
                 <li><%= link_to 'Profile', chef_path(current_user) %></li>
                 <li><%= link_to 'Edit Profile', edit_chef_path(current_user) %></li>
-                <li role="separator" class="divider"></li>
+                <li class="divider"></li>
                 <li><%= link_to 'Log out', logout_path %></li>
               </ul>
             </li>

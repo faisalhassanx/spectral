@@ -123,6 +123,20 @@ ul.dropdown-menu, .divider {
   margin: auto;
 }
 
+.nav .nav-divider {
+  height: 1px;
+  margin: auto !important;
+  overflow: hidden;
+  background-color: #ffffff !important;
+}
+
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #ffffff !important;
+}
+
 @media (max-width: 768px) {
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -138,6 +152,24 @@ ul.dropdown-menu, .divider {
   
   .navbar-nav .navbar-right {
     margin: auto !important;
+  }
+  
+  .nav .nav-divider {
+  height: 1px;
+  margin: auto !important;
+  overflow: hidden;
+  background-color: #ffffff !important;
+  }
+  
+  .dropdown-menu .divider {
+    height: 1px;
+    margin: auto !important;
+    overflow: hidden;
+    background-color: #ffffff !important;
+  }
+  
+  ul.dropdown-menu li.divider {
+    background-color: #ffffff !important;
   }
 }
 
