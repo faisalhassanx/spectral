@@ -6,7 +6,7 @@
         <%= gravatar_for @recipe.chef, size: 150 %>
         <p><h4>By: <%= link_to @recipe.chef.name, chef_path(@recipe.chef) %></h4></p>
         <h5>
-          <% if logged_in? && @recipe.chef == current_user %>
+          <% if logged_in? && (@recipe.chef == current_user || current_user.admin?) %>
             <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-primary edit-btn" %>
             <%= link_to "Delete", recipe_path(@recipe), method: :delete, 
                                 data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
