@@ -57,6 +57,9 @@ body {
 
 
 // Navbar
+.navbar-nav, .navbar-right {
+  margin: auto;
+}
 
 .navbar-default {
   padding: 5px 20px;
@@ -116,7 +119,7 @@ body {
   color: #d3e0f7;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     background-color: #ffffff;
@@ -127,6 +130,10 @@ body {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus{
     background-color: #181842;
     color: #ffffff;
+  }
+  
+  .navbar-nav .navbar-right {
+    margin: auto !important;
   }
 }
 
