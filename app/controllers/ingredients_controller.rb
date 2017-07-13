@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :require_logged_in_user, only: [:new, :create]
+  before_action :require_admin, only: [:new, :create]
   
   def show
     @ingredient = Ingredient.find(params[:id])
@@ -31,6 +32,13 @@ class IngredientsController < ApplicationController
     if !logged_in?
       flash[:danger] = "Please log in or sign up"
       redirect_to login_path
+    end
+  end
+  
+  def require_admin
+    if !current_user.admin?
+      flash[:danger] = "Admin privileges required"
+      redirect_to root_path
     end
   end
   
